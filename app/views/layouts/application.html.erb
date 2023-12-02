@@ -17,13 +17,10 @@
   </head>
   <body>
     <%= render "layouts/navbar" %>
-    <div class="container">
+    <div class="container full-height">
       <%= bootstrap_flash %>
       <%= yield %>
-      <footer style="margin-top: auto;">
-        <p>&copy; PhotoApp 2023</p>
-      </footer>
-    </div> <!-- /container -->
-
+    </div>
+    <%= render "layouts/footer" %>
   </body>
 </html>
