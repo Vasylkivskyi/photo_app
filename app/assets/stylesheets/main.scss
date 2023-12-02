@@ -10,6 +10,18 @@ html, body {
   flex-grow: 1;
 }
 
+.jumbotron-bg {
+  background-image: asset-url("jumbotron-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 3px 3px 9px black;
+}
+
+.btn {
+  text-shadow: none;
+}
+
 footer {
   padding-top: 10px;
 }
