@@ -1,5 +1,4 @@
 <script language="Javascript">
-  console.log("<%= Rails.application.credentials.dig(:stripe, :publishable_key) %>")
   Stripe.setPublishableKey("<%= Rails.application.credentials.dig(:stripe, :publishable_key) %>")
 </script>
 <h1><%= t('.sign_up') %></h1>
@@ -28,25 +27,25 @@
   <%= fields_for(:payment) do |p| %>
     <div class="form-group">
       <%= p.label :card_nubmer, "Card number", data: { stripe: 'label'} %>
-      <%= p.text_field :curd_number, class: 'form-control', required: true, data: { stripe: 'number'} %>
+      <%= p.text_field :card_number, class: 'form-control', required: true, data: { stripe: 'number'} %>
     </div>
     <div class="row">
       <div class="col-md-2">
         <div class="form-group no-left-padding">
           <%= p.label :card_cvv, "Card CVV", data: { stripe: 'label'} %>
-          <%= p.text_field :curd_cvv, class: 'form-control', required: true, data: { stripe: 'cvc'} %>
+          <%= p.text_field :card_cvv, class: 'form-control', required: true, data: { stripe: 'cvc'} %>
         </div>
       </div>
       <div class="col-md-5">
         <div class="form-group">
           <%= p.label :card_expires, "Expires month", data: { stripe: 'label'} %>
-          <%= p.select :curd_expires_month, options_for_select(Payment.month_options), { include_blank: "Month" }, class: 'form-control', required: true, data: { stripe: 'exp-month' } %>
+          <%= p.select :card_expires_month, options_for_select(Payment.month_options), { include_blank: "Month" }, class: 'form-control', required: true, data: { stripe: 'exp-month' } %>
         </div>
       </div>
       <div class="col-md-5">
         <div class="form-group">
           <%= p.label :card_expires, "Expires year", data: { stripe: 'label'} %>
-          <%= p.select :curd_expires_year, options_for_select(Payment.year_options.push), { include_blank: "Year" }, class: 'form-control', required: true, data: { stripe: 'exp-year'} %>
+          <%= p.select :card_expires_year, options_for_select(Payment.year_options.push), { include_blank: "Year" }, class: 'form-control', required: true, data: { stripe: 'exp-year'} %>
         </div>
       </div>
     </div>

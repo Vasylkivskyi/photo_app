@@ -1,5 +1,4 @@
 $(document).on('ready turbolinks:load', function () {
-  var stripeResponseHandler;
 
   const show_error = (message) => {
     if ($('#flash-messages').size() < 1) {
@@ -52,6 +51,7 @@ $(document).on('ready turbolinks:load', function () {
   };
 
   const submitHandler = (event) => {
+    console.log('submit worked')
     const $form = $(event.target);
 
     $form.find('input[type=submit]').prop('disabled', true);
@@ -59,6 +59,7 @@ $(document).on('ready turbolinks:load', function () {
     //If Stripe was initialized correctly this will create a token using the credit card info
 
     if (Stripe) {
+      console.log('create token works', $form)
       Stripe.card.createToken($form, stripeResponseHandler);
     } else {
       show_error(
