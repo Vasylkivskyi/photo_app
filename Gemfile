@@ -61,3 +61,5 @@ gem "devise", "~> 4.9"
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jquery-rails'
 gem 'stripe'
+gem 'aws-sdk-s3'
+gem "paperclip", "~> 6.0.0"
