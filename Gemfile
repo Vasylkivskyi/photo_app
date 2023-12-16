@@ -61,4 +61,5 @@ gem "devise", "~> 4.9"
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'jquery-rails'
 gem 'stripe'
-gem "kt-paperclip", "~> 6.4", ">= 6.4.1"
+gem 'aws-sdk-s3', require: false
+gem "image_processing", ">= 1.2"

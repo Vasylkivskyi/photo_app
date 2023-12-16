@@ -31,7 +31,7 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
@@ -81,14 +81,14 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 
-  # Paperclip config
-  config.paperclip_defaults = {
-    storage: :s3,
-    s3_credentials: {
-      bucket: Rails.application.credentials.dig(:aws, :bucket_name),
-      access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
-      secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
-      s3_region: Rails.application.credentials.dig(:aws, :region),
-    }
-  }
+  # # Paperclip config
+  # config.paperclip_defaults = {
+  #   storage: :s3,
+  #   s3_credentials: {
+  #     bucket: Rails.application.credentials.dig(:aws, :bucket_name),
+  #     access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
+  #     secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
+  #     s3_region: Rails.application.credentials.dig(:aws, :region),
+  #   }
+  # }
 end
