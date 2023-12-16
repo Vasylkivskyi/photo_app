@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <td><%= @image.name %></td>
-<% @image.photo.each do |photo| %>
+<% @image.photos.each do |photo| %>
   <td><%=  image_tag photo.variant(resize_to_fill: [300, 300]), quality: 100, class: 'image' %></td>
 <% end %>
 <%= link_to 'Edit', edit_image_path(@image) %> |
