@@ -1,26 +1,20 @@
 <p id="notice"><%= notice %></p>
 <h1>Listing Images</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @images.each do |image| %>
-      <tr>
-        <td><%= image.name %></td>
-        <td><%=  image_tag image.photo.url(:thumb) %></td>
-        <td><%= link_to 'Show', image %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% if @images.present? && @images[0]&.photo&.attached? %>
+  <%= image_tag @images[0].photo.variant(resize_to_fill: [300, 300]), quality: 100, class: 'image' %>
+<% end %>
+<div>
+  <% @images.each do |image| %>
+    <% if image.name %>
+    <p><%= image.name %></p>
     <% end %>
-  </tbody>
-</table>
-
+    <% if image.photo.attached? %>
+      <%= image_tag image.photo.variant(resize_to_fill: [300, 300]), quality: 100, class: 'image' %>
+    <% end %>
+    <%= link_to 'Show', image %>
+    <%= link_to 'Edit', edit_image_path(image) %>
+    <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
 <br>
-
 <%= link_to 'New Image', new_image_path %>
