@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 <h1>Listing Images</h1>
-<% if @images.present? && @images[0]&.photo&.attached? %>
-  <%= image_tag @images[0].photo.variant(resize_to_fill: [300, 300]), quality: 100, class: 'image' %>
-<% end %>
-<div>
-  <% @images.each do |image| %>
-    <% if image.name %>
-    <p><%= image.name %></p>
+<div class="tz-gallery">
+  <div class="row">
+    <% @images.each do |image| %>
+      <% if image.photo.attached? %>
+        <div class="col-sm-6 col-md-4">
+          <%= link_to image, class: 'lightbox' do %>
+            <div class="image" style="background-image: url('<%= image.photo.url %>');"></div>
+          <% end %>
+        </div>
+      <% end %>
+      <%# <%= link_to 'Show', image %>
+      <%# link_to 'Edit', edit_image_path(image) %>
+      <%# link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-    <% if image.photo.attached? %>
-      <%= image_tag image.photo.variant(resize_to_fill: [300, 300]), quality: 100, class: 'image' %>
-    <% end %>
-    <%= link_to 'Show', image %>
-    <%= link_to 'Edit', edit_image_path(image) %>
-    <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
-<% end %>
+</div>
 <br>
 <%= link_to 'New Image', new_image_path %>

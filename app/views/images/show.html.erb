@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <% if @image.photo %>
   <%= @image.name %>
-  <%=  image_tag @image.photo.variant(resize_to_fill: [300, 300]), quality: 100, class: 'image' %>
+  <div class="image-full" style="background-image: url('<%= @image.photo.url %>');"></div>
 <% end %>
 <%= link_to 'Edit', edit_image_path(@image) %>
 <%= link_to 'Back', images_path %>
