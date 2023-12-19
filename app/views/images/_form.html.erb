@@ -10,16 +10,14 @@
       </ul>
     </div>
   <% end %>
-
-  <p>
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.file_field :photo %>
-  </p>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="input-group mb-2">
+    <%= f.text_field :name, class: "form-control", placeholder: "Enter name for image" %>
+    <span class="input-group-addon" id="basic-addon1">Image name</span>
+  </div>
+  <div class="input-group mb-2 w-100">
+    <%= f.file_field :photo, class: "form-control", placeholder: "Image name" %>
+    <span class="input-group-btn">
+    <%= f.submit "Upload", class: "btn btn-primary" %>
+    </span>
   </div>
 <% end %>

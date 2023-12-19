@@ -110,3 +110,18 @@
     padding-left: 5px !important;
   }
 }
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .justify-right {
+    display: flex;
+    justify-self: end;
+    padding-right: 0;
+    .btn-show {
+      margin-right: 5px;
+    }
+  }
+}

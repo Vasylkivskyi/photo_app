@@ -1,8 +1,12 @@
-<%= link_to images_path, class: 'btn btn-link justify-left back-btn' do %>
-  <span class="glyphicon glyphicon-chevron-left"></span>
-  <span>Back</span>
-<% end %>
+<div class="btn-container">
+  <%= link_to :back, class: 'btn btn-link justify-left back-btn' do %>
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span>Back</span>
+  <% end %>
+  <%= link_to @image, class: 'btn btn-link justify-right back-btn' do %>
+    <span class="btn-show">Show</span>
+    <span class="glyphicon glyphicon-picture"></span>
+  <% end %>
+</div>
 <h1>Editing Image</h1>
 <%= render 'form' %>
-<%= link_to 'Show', @image %> |
-<%= link_to 'Back', images_path %>
