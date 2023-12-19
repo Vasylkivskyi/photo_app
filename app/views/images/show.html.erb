@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Back', images_path, class: 'btn btn-link justify-left mb-2' %>
 <% if @image.photo %>
   <%= @image.name %>
-  <div class="image-full" style="background-image: url('<%= @image.photo.url %>');"></div>
+  <div class="image-full mb-2" style="background-image: url('<%= @image.photo.url %>');"></div>
 <% end %>
-<%= link_to 'Edit', edit_image_path(@image) %>
-<%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Back', images_path %>
+<div class="btn-group justify-center" role="group" aria-label="...">
+  <%= link_to 'Edit', edit_image_path(@image), class: 'btn btn-default' %>
+  <%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+</div>

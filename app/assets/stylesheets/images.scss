@@ -64,3 +64,31 @@
 .baguetteBox-button {
   background-color: transparent !important;
 }
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.justify-left {
+  display: flex;
+  justify-self: start;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .right {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      text-decoration: none;
+    }
+    .btn, .btn-link {
+      padding-left: 5px !important;
+    }
+  }
+}

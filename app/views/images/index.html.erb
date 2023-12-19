@@ -1,12 +1,18 @@
 <p id="notice"><%= notice %></p>
-<h1>Listing Images</h1>
+<div class="top-container">
+  <h1>Listing Images</h1>
+  <%= link_to new_image_path, class: 'right' do %>
+    <span class="glyphicon glyphicon-plus-sign"></span>
+    <span class="btn btn-link">New Image</span>
+  <% end %>
+</div>
 <div class="tz-gallery">
   <div class="row">
     <% @images.each do |image| %>
       <% if image.photo.attached? %>
         <div class="col-sm-6 col-md-4">
           <%= link_to image, class: 'lightbox' do %>
-            <div class="image" style="background-image: url('<%= image.photo.url %>');"></div>
+            <div class="image" style="background-image: url('<%= image.photo.url   %>');"></div>
           <% end %>
         </div>
       <% end %>
