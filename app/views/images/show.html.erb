@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-<%= link_to 'Back', images_path, class: 'btn btn-link justify-left mb-2' %>
+<%= link_to images_path, class: 'btn btn-link justify-left mb-2 back-btn' do %>
+  <span class="glyphicon glyphicon-chevron-left"></span>
+  <span>Back</span>
+<% end %>
 <% if @image.photo %>
   <%= @image.name %>
   <div class="image-full mb-2" style="background-image: url('<%= @image.photo.url %>');"></div>
